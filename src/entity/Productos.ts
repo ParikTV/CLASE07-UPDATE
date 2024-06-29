@@ -28,6 +28,7 @@ export class Productos{
 
     @Column({default:1})
     estado: boolean;
+    Proveedor: any;
 
 
 
