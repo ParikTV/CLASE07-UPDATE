@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, OneToMany } from "typeorm";
 import { IsNotEmpty } from "class-validator";
 import { Productos } from "./Productos"; // Asumiendo que tienes una entidad Categoria definida
 
@@ -28,6 +28,6 @@ export class Proveedor {
     @IsNotEmpty({ message: 'Debe indicar el teléfono.' })
     telefono: string;
     
-    @ManyToMany(()=>Productos, (Productos)=> Productos.Proveedor)   
-    Productos: Productos;
+    @OneToMany(()=>Productos, (productos)=> productos.Proveedor)   
+    productos: Productos;
 }
